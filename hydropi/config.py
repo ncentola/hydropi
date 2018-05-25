@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 import json
 
-class Config():
+class Config(object):
     def __init__(self, path_to_config_file):
         cfp = ConfigParser()
         cfp.read(path_to_config_file)
@@ -22,3 +22,16 @@ class Config():
 
         self.water_pump_starts = json.loads(cfp.get(self.method, 'water_pump_starts'))
         self.water_pump_time_on_mins = int(cfp.get(self.method, 'water_pump_time_on_mins'))
+
+class DevelopmentConfig(Config):
+    '''
+    Use this config when developing somewhere other than the RPi
+    Should turn off the rpi-specific functionality
+    '''
+    prod_mode = False
+
+class ProductionConfig(Config):
+    '''
+    Use this config when on the RPi
+    '''
+    prod_mode = True
