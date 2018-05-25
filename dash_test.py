@@ -4,7 +4,8 @@ import dash_core_components as dcc
 import plotly.graph_objs as go
 from vapeplot import vapeplot
 import plotly.plotly as py
-import dash, datetime, db
+import dash, datetime
+import hydropi.db as db
 import pandas as pd
 
 colors = {
