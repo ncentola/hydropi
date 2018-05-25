@@ -59,7 +59,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         html.Div(id='live-update-text'),
         dcc.Interval(
             id='interval-component',
-            interval=1*1000, # in milliseconds
+            interval=1*10000, # in milliseconds
             n_intervals=100
         )
     ]
